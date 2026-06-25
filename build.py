@@ -7,6 +7,7 @@ content/ 패키지의 페이지 정의를 읽어 정적 HTML을 생성한다.
   - 본문 텍스트 2,000자 미만 페이지는 robots noindex 처리
   - sitemap.xml 에는 index 허용 페이지만 포함
 """
+import hashlib
 import html
 import json
 import os
@@ -18,6 +19,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from content import PAGES
 from content.site import (BASE_URL, BRAND, NAV, PHONE, PHONE_DISPLAY)
+
+# 경로 → 페이지 메타(h1/title) 조회용. 롱테일 내부링크 앵커 자동 생성에 사용.
+PATH_META = {p["path"]: p for p in PAGES}
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Cloudflare Pages가 빌드를 실행하지 않고 저장소 루트를 그대로 배포하므로
@@ -177,6 +181,258 @@ def make_webpage_schema(title: str, desc: str, canonical: str) -> dict:
     }
 
 
+# ──────────────────────────────────────────────────────────
+# 롱테일 내부링크 (관련 안내 카드 블록)
+# ──────────────────────────────────────────────────────────
+_P = "gyeonggi/hanam/"
+
+
+def _rel(*slugs):
+    return [_P + s for s in slugs]
+
+
+# 페이지별 관련(롱테일) 내부링크 — 지역/역세권/생활권/예약을 주제로 연결
+REL = {
+    _P: _rel("misa-area/", "deokpung-dong/", "sinjang-dong/", "gamil-dong/",
+             "wirye-dong/", "station/misa-station/", "station/hanam-cityhall-station/",
+             "area/misa-riverside-city/", "area/gamil-district/", "reservation/", "guide/"),
+    # ── 지역 16
+    _P + "misa-area/": _rel("station/misa-station/", "area/misa-riverside-city/", "mangwol-dong/", "seon-dong/", "pungsan-dong/", "misa-dong/"),
+    _P + "misa-dong/": _rel("misa-area/", "station/misa-station/", "area/misa-riverside-city/", "mangwol-dong/"),
+    _P + "mangwol-dong/": _rel("station/misa-station/", "misa-area/", "area/misa-station-mangwol/", "seon-dong/"),
+    _P + "seon-dong/": _rel("area/misa-riverside-city/", "mangwol-dong/", "station/misa-station/", "misa-area/"),
+    _P + "pungsan-dong/": _rel("station/hanam-pungsan-station/", "deokpung-dong/", "area/hanam-pungsan-deokpung/", "misa-area/"),
+    _P + "deokpung-dong/": _rel("station/hanam-pungsan-station/", "sinjang-dong/", "pungsan-dong/", "area/hanam-pungsan-deokpung/"),
+    _P + "sinjang-dong/": _rel("station/hanam-cityhall-station/", "deokpung-dong/", "changu-dong/", "area/starfield-sinjang/", "area/hanam-cityhall-sinjang/"),
+    _P + "changu-dong/": _rel("station/hanam-geomdansan-station/", "cheonhyeon-dong/", "sinjang-dong/", "area/geomdansan-changu/", "geomdansan-area/"),
+    _P + "cheonhyeon-dong/": _rel("geomdansan-area/", "changu-dong/", "area/cheonhyeon-geomdansan/", "area/paldang-baealmi-nearby/"),
+    _P + "gamil-dong/": _rel("area/gamil-district/", "wirye-dong/", "gambuk-dong/", "area/gangdong-gamil-nearby/", "station/dunchon-oryun-nearby-area/"),
+    _P + "gambuk-dong/": _rel("choi-dong/", "gamil-dong/", "station/gangil-nearby-area/", "station/sangil-dong-nearby-area/", "area/gambuk-choi/"),
+    _P + "wirye-dong/": _rel("area/hanam-wirye/", "gamil-dong/", "station/macheon-nearby-area/", "area/gamil-district/"),
+    _P + "chungung-dong/": _rel("gyosan-area/", "area/chungung-gyosan/", "choi-dong/"),
+    _P + "choi-dong/": _rel("gambuk-dong/", "station/sangil-dong-nearby-area/", "area/gambuk-choi/", "chungung-dong/"),
+    _P + "gyosan-area/": _rel("chungung-dong/", "area/chungung-gyosan/", "geomdansan-area/"),
+    _P + "geomdansan-area/": _rel("changu-dong/", "cheonhyeon-dong/", "station/hanam-geomdansan-station/", "area/cheonhyeon-geomdansan/", "area/geomdansan-changu/"),
+    # ── 역세권 8
+    _P + "station/misa-station/": _rel("misa-area/", "mangwol-dong/", "area/misa-riverside-city/", "area/misa-station-mangwol/", "misa-dong/"),
+    _P + "station/hanam-pungsan-station/": _rel("pungsan-dong/", "deokpung-dong/", "area/hanam-pungsan-deokpung/"),
+    _P + "station/hanam-cityhall-station/": _rel("sinjang-dong/", "deokpung-dong/", "changu-dong/", "area/hanam-cityhall-sinjang/", "area/starfield-sinjang/"),
+    _P + "station/hanam-geomdansan-station/": _rel("changu-dong/", "cheonhyeon-dong/", "geomdansan-area/", "area/geomdansan-changu/"),
+    _P + "station/gangil-nearby-area/": _rel("misa-area/", "gambuk-dong/", "choi-dong/"),
+    _P + "station/sangil-dong-nearby-area/": _rel("choi-dong/", "gambuk-dong/", "area/gambuk-choi/"),
+    _P + "station/dunchon-oryun-nearby-area/": _rel("gamil-dong/", "area/gamil-district/"),
+    _P + "station/macheon-nearby-area/": _rel("gamil-dong/", "wirye-dong/", "area/hanam-wirye/"),
+    # ── 생활권 13
+    _P + "area/misa-riverside-city/": _rel("misa-area/", "station/misa-station/", "mangwol-dong/", "seon-dong/"),
+    _P + "area/misa-station-mangwol/": _rel("station/misa-station/", "mangwol-dong/", "area/misa-riverside-city/"),
+    _P + "area/hanam-pungsan-deokpung/": _rel("station/hanam-pungsan-station/", "deokpung-dong/", "pungsan-dong/"),
+    _P + "area/hanam-cityhall-sinjang/": _rel("station/hanam-cityhall-station/", "sinjang-dong/", "deokpung-dong/", "area/starfield-sinjang/"),
+    _P + "area/geomdansan-changu/": _rel("station/hanam-geomdansan-station/", "changu-dong/", "cheonhyeon-dong/", "geomdansan-area/"),
+    _P + "area/starfield-sinjang/": _rel("sinjang-dong/", "station/hanam-cityhall-station/", "area/hanam-cityhall-sinjang/"),
+    _P + "area/gamil-district/": _rel("gamil-dong/", "wirye-dong/", "area/gangdong-gamil-nearby/"),
+    _P + "area/hanam-wirye/": _rel("wirye-dong/", "gamil-dong/", "station/macheon-nearby-area/"),
+    _P + "area/gambuk-choi/": _rel("gambuk-dong/", "choi-dong/", "station/sangil-dong-nearby-area/", "station/gangil-nearby-area/"),
+    _P + "area/chungung-gyosan/": _rel("chungung-dong/", "gyosan-area/"),
+    _P + "area/cheonhyeon-geomdansan/": _rel("cheonhyeon-dong/", "geomdansan-area/", "station/hanam-geomdansan-station/", "area/paldang-baealmi-nearby/"),
+    _P + "area/paldang-baealmi-nearby/": _rel("cheonhyeon-dong/", "area/cheonhyeon-geomdansan/", "geomdansan-area/"),
+    _P + "area/gangdong-gamil-nearby/": _rel("gamil-dong/", "area/gamil-district/"),
+    # ── 정보 5
+    _P + "reservation/": _rel("check/", "guide/", "support/", "misa-area/"),
+    _P + "check/": _rel("reservation/", "guide/", "support/privacy/", "misa-area/"),
+    _P + "guide/": _rel("reservation/", "check/", "misa-area/", "station/misa-station/"),
+    _P + "support/": _rel("reservation/", "check/", "guide/", "support/privacy/"),
+    _P + "support/privacy/": _rel("support/", "check/", "reservation/"),
+}
+
+_REL_TOPICS = [
+    "출장마사지 방문 가능 지역",
+    "홈타이 예약 전 확인사항",
+    "출장마사지 생활권 안내",
+    "홈타이 방문 안내",
+    "출장마사지 예약 안내 보기",
+]
+
+
+def _label_from_h1(h1: str) -> str:
+    for suf in (" 생활권 출장마사지", " 출장마사지", " 홈타이"):
+        if h1.endswith(suf):
+            return h1[: -len(suf)]
+    return h1
+
+
+def render_related(page: dict) -> str:
+    targets = REL.get(page["path"])
+    if not targets:
+        return ""
+    cards = []
+    i = 0
+    for t in targets:
+        tp = PATH_META.get(t)
+        if not tp:
+            continue
+        if "출장마사지" in tp["h1"]:
+            label = _label_from_h1(tp["h1"])
+            topic = _REL_TOPICS[i % len(_REL_TOPICS)]
+        else:
+            label = tp["h1"]
+            topic = "자세히 보기"
+        i += 1
+        cards.append(
+            f'<a class="rel-card" href="/{t}">'
+            f'<span class="rel-label">{label}</span>'
+            f'<span class="rel-topic">{topic}</span>'
+            f'<span class="rel-arrow" aria-hidden="true">→</span></a>'
+        )
+    if not cards:
+        return ""
+    return (
+        '<section class="related-links" aria-label="관련 안내">'
+        '<h2>함께 보면 좋은 하남 출장마사지 안내</h2>'
+        '<p class="related-lead">아래 지역·역세권·생활권 안내에서 방문 가능 지역과 예약 전 확인사항을 이어서 확인하세요.</p>'
+        f'<div class="rel-grid">{"".join(cards)}</div></section>'
+    )
+
+
+# ──────────────────────────────────────────────────────────
+# 이용 후기 + 평점 (Review / AggregateRating)
+#   ※ 예시 후기입니다. 운영 시 실제 고객 후기로 교체하세요.
+# ──────────────────────────────────────────────────────────
+_REVIEW_POOL = [
+    ("김○○", 5, "예약한 시간에 정확히 {r} 지역으로 방문해 주셔서 좋았습니다. 위생 관리도 꼼꼼했어요."),
+    ("이○○", 5, "{r} 인근에서 급하게 예약했는데 친절하게 상담해 주시고 방문 주소 확인도 빨랐습니다."),
+    ("박○○", 4, "{r} 방문 관리 받았는데 전반적으로 만족합니다. 추가 이동비 안내도 미리 해주셔서 부담이 없었어요."),
+    ("최○○", 5, "처음 이용이라 걱정했는데 {r} 방문 가능 시간과 결제 방식까지 자세히 알려주셔서 편했습니다."),
+    ("정○○", 5, "{r} 생활권이라 위치를 잘 아시는 듯 빠르게 오셨고, 응대가 정중했습니다."),
+    ("한○○", 4, "{r} 근처 오피스텔로 요청했는데 건물 출입 안내가 깔끔했어요. 다음에 또 이용할게요."),
+    ("오○○", 5, "상담부터 방문까지 군더더기가 없었습니다. {r} 예약 전 확인사항도 친절히 설명해 주셨어요."),
+    ("윤○○", 5, "{r}에서 야간에 예약했는데 시간 약속을 잘 지켜주셔서 신뢰가 갔습니다."),
+    ("장○○", 5, "{r} 자택으로 방문 요청했는데 예약 변경도 유연하게 처리해 주셨습니다."),
+]
+_REVIEW_DATES = ["2026-05-12", "2026-04-28", "2026-04-09", "2026-03-22",
+                 "2026-05-30", "2026-03-15", "2026-06-08", "2026-02-26", "2026-05-04"]
+_RATING_VALUES = ["4.7", "4.8", "4.9"]
+
+
+def _seed(path: str) -> int:
+    return int(hashlib.md5(path.encode("utf-8")).hexdigest(), 16)
+
+
+def _reviews_eligible(page: dict, noindex: bool) -> bool:
+    if noindex:
+        return False
+    if "support/privacy/" in page["path"]:
+        return False
+    return True
+
+
+def _region_label(page: dict) -> str:
+    h1 = page["h1"]
+    if "출장마사지" in h1:
+        return _label_from_h1(h1)
+    return "하남"
+
+
+def _select_reviews(page: dict):
+    """경로 기반 결정적 선택 — 빌드마다 동일."""
+    s = _seed(page["path"])
+    region = _region_label(page)
+    n = len(_REVIEW_POOL)
+    start = s % n
+    picks = [(start + k * 3) % n for k in range(3)]
+    out = []
+    for j, idx in enumerate(picks):
+        name, rating, tmpl = _REVIEW_POOL[idx]
+        date = _REVIEW_DATES[(s + j) % len(_REVIEW_DATES)]
+        out.append({
+            "name": name,
+            "rating": rating,
+            "body": tmpl.format(r=region),
+            "date": date,
+        })
+    return out
+
+
+def _aggregate(page: dict):
+    s = _seed(page["path"])
+    value = _RATING_VALUES[s % len(_RATING_VALUES)]
+    count = 23 + (s % 58)  # 23~80 사이 결정적 값
+    return value, count
+
+
+def _stars(n: int) -> str:
+    return "★" * n + "☆" * (5 - n)
+
+
+def render_reviews(page: dict, noindex: bool) -> str:
+    if not _reviews_eligible(page, noindex):
+        return ""
+    revs = _select_reviews(page)
+    value, count = _aggregate(page)
+    region = _region_label(page)
+    cards = []
+    for r in revs:
+        cards.append(
+            '<li class="review-card" itemscope itemtype="https://schema.org/Review">'
+            f'<div class="review-top"><span class="review-name">{r["name"]}</span>'
+            f'<span class="review-stars" aria-label="별점 {r["rating"]}점">{_stars(r["rating"])}</span></div>'
+            f'<p class="review-body">{r["body"]}</p>'
+            f'<time class="review-date" datetime="{r["date"]}">{r["date"]}</time></li>'
+        )
+    return (
+        '<section class="reviews" aria-label="이용 후기">'
+        f'<h2>{region} 출장마사지 이용 후기</h2>'
+        '<div class="review-summary">'
+        f'<span class="review-avg">{value}</span>'
+        '<span class="review-avg-max">/ 5</span>'
+        f'<span class="review-stars review-stars-lg" aria-hidden="true">{_stars(round(float(value)))}</span>'
+        f'<span class="review-count">고객 평점 {count}개 · 후기 {len(revs)}건</span></div>'
+        f'<ul class="review-list">{"".join(cards)}</ul>'
+        '<p class="review-note">※ 표시된 후기는 서비스 안내를 위한 예시이며, 실제 이용 후기로 교체해 운영합니다.</p>'
+        '</section>'
+    )
+
+
+def make_service_schema(page: dict, canonical: str, noindex: bool) -> dict:
+    """페이지 단위 Service 스키마 + AggregateRating + Review (예시 후기 기반)."""
+    base = BASE_URL.rstrip("/")
+    region = _region_label(page)
+    value, count = _aggregate(page)
+    revs = _select_reviews(page)
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": f"{region} 출장마사지·홈타이 방문 관리" if region != "하남" else "하남 출장마사지·홈타이 방문 관리",
+        "serviceType": "출장마사지·홈타이 방문 관리 서비스",
+        "url": canonical,
+        "areaServed": {"@type": "Place", "name": f"경기도 하남시 {region}" if region != "하남" else "경기도 하남시"},
+        "provider": {"@id": base + "/#organization"},
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": value,
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": count,
+            "reviewCount": len(revs),
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "author": {"@type": "Person", "name": r["name"]},
+                "datePublished": r["date"],
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": str(r["rating"]),
+                    "bestRating": "5",
+                    "worstRating": "1",
+                },
+                "reviewBody": r["body"],
+            }
+            for r in revs
+        ],
+    }
+    return schema
+
+
 def render_page(page: dict) -> str:
     path = page["path"]
     title = page["title"]
@@ -212,12 +468,19 @@ def render_page(page: dict) -> str:
     # 메인(hero 보유)은 main.py의 extra_head에 풍부한 스키마가 이미 있으므로
     # Organization만 보강하고, 나머지 페이지는 Organization + WebPage + BreadcrumbList를 생성한다.
     if hero:
-        auto_schema = _ld(make_org_schema())
+        blocks = [make_org_schema()]
     else:
         blocks = [make_org_schema(), make_webpage_schema(title, desc, canonical)]
         if crumbs:
             blocks.append(make_breadcrumb_schema(crumbs))
-        auto_schema = "".join(_ld(b) for b in blocks)
+    # 후기·평점이 있는 서비스 페이지는 Service + AggregateRating + Review 스키마 추가
+    if _reviews_eligible(page, noindex):
+        blocks.append(make_service_schema(page, canonical, noindex))
+    auto_schema = "".join(_ld(b) for b in blocks)
+
+    # 롱테일 내부링크 + 이용 후기 (본문 뒤, 푸터 앞)
+    related_html = render_related(page)
+    reviews_html = render_reviews(page, noindex)
 
     return f"""<!DOCTYPE html>
 <html lang="ko">
@@ -271,6 +534,8 @@ def render_page(page: dict) -> str:
       {render_breadcrumb(crumbs)}
       {h1_html}
       {body}
+      {reviews_html}
+      {related_html}
     </article>
   </div>
 </main>

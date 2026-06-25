@@ -1014,3 +1014,73 @@ strong {
     var(--sheen),
     linear-gradient(165deg, var(--panel-2) 0%, var(--panel) 100%);
 }
+
+/* ──────────────────────────────────────────
+   롱테일 관련 안내 (rel-card) + 이용 후기 (reviews)
+   ────────────────────────────────────────── */
+.related-links { margin: 48px 0 8px; }
+.related-links > h2 {
+  font-family: var(--serif); font-size: 1.34rem; color: var(--gold-soft);
+  border-left: 4px solid var(--orange-primary); padding-left: 14px; margin-bottom: 6px;
+}
+.related-lead { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 20px; }
+.rel-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); gap: 14px;
+}
+.rel-card {
+  position: relative; display: flex; flex-direction: column; gap: 4px;
+  padding: 16px 44px 16px 18px; border-radius: var(--radius-sm);
+  background: linear-gradient(160deg, var(--panel-2) 0%, var(--panel) 100%);
+  border: 1px solid var(--line-soft); color: var(--text);
+  transition: var(--transition); overflow: hidden;
+}
+.rel-card::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--grad-orange); transform: scaleY(0); transform-origin: top;
+  transition: transform var(--transition);
+}
+.rel-card:hover {
+  border-color: var(--orange-primary); transform: translateY(-3px);
+  box-shadow: 0 14px 32px -14px rgba(255,107,53,0.4);
+}
+.rel-card:hover::before { transform: scaleY(1); }
+.rel-label { font-weight: 800; font-size: 1.02rem; color: var(--orange-light); }
+.rel-topic { font-size: 0.86rem; color: var(--text-dim); }
+.rel-arrow {
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  color: var(--orange-primary); font-weight: 700; opacity: 0; transition: var(--transition);
+}
+.rel-card:hover .rel-arrow { opacity: 1; right: 13px; }
+
+.reviews { margin: 48px 0 8px; }
+.reviews > h2 {
+  font-family: var(--serif); font-size: 1.34rem; color: var(--gold-soft);
+  border-left: 4px solid var(--orange-primary); padding-left: 14px; margin-bottom: 16px;
+}
+.review-summary {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  padding: 16px 20px; border-radius: var(--radius);
+  background: linear-gradient(160deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--glass-line); margin-bottom: 18px;
+}
+.review-avg { font-size: 2.1rem; font-weight: 900; color: var(--orange-primary); line-height: 1; }
+.review-avg-max { color: var(--text-dim); font-weight: 700; }
+.review-stars { color: var(--orange-light); letter-spacing: 2px; }
+.review-stars-lg { font-size: 1.2rem; }
+.review-count { color: var(--text-dim); font-size: 0.9rem; margin-left: auto; }
+.review-list { list-style: none; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.review-card {
+  padding: 18px 20px; border-radius: var(--radius-sm);
+  background: linear-gradient(160deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--line-soft);
+}
+.review-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.review-name { font-weight: 800; color: var(--text); }
+.review-card .review-stars { font-size: 0.95rem; }
+.review-body { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; margin: 0 0 10px; }
+.review-date { color: #6f7a93; font-size: 0.8rem; }
+.review-note { color: #6f7a93; font-size: 0.82rem; margin-top: 14px; }
+
+@media (max-width: 560px) {
+  .review-count { margin-left: 0; width: 100%; }
+}

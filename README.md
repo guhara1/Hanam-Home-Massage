@@ -54,6 +54,12 @@ python3 build.py
 - JSON-LD 스키마: Organization / WebPage / BreadcrumbList (전 페이지 자동), 메인은 HealthAndBeautyBusiness · FAQPage 추가
 - 방문형(오프라인 사업장 주소 없음)이므로 LocalBusiness 스키마 미사용
 
+## 롱테일 내부링크 & 후기·평점
+
+- 메인·지역·역세권·생활권·정보 전 페이지에 **롱테일 관련 안내 카드 블록**(`render_related`) 자동 삽입 — 주제별(방문 가능 지역·예약 전 확인·생활권 안내) 앵커로 내부링크 강화
+- 전 서비스 페이지(개인정보처리방침·루트 제외)에 **이용 후기 섹션 + Service·AggregateRating·Review 스키마** 자동 삽입(`render_reviews`/`make_service_schema`)
+- ⚠️ **표시 후기·별점은 예시입니다.** 구글 정책상 가짜 평점은 페널티 위험이 있으므로, 운영 시 `build.py`의 `_REVIEW_POOL`을 **실제 고객 후기로 교체**하세요. 후기가 없다면 `_reviews_eligible()`을 `return False`로 두면 마크업이 비활성화됩니다.
+
 ## 푸터
 
 - 오렌지 컬러 버튼 **웹사이트 제작문의 · 제휴문의** → 텔레그램(`https://t.me/googleseolab`) 연결
