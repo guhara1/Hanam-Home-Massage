@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# 주요 검색엔진 전체 허용
+User-agent: Googlebot
+Allow: /
+User-agent: Yeti
+Allow: /
+User-agent: bingbot
+Allow: /
+
 Sitemap: https://hanam-home-massage.pages.dev/sitemap.xml
