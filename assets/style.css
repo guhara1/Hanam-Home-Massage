@@ -1084,3 +1084,74 @@ strong {
 @media (max-width: 560px) {
   .review-count { margin-left: 0; width: 100%; }
 }
+
+/* ──────────────────────────────────────────
+   기본 요금 카드 (pricing-table)
+   ────────────────────────────────────────── */
+.pricing-table { margin: 52px 0 8px; text-align: center; }
+.pricing-table > h2 {
+  font-family: var(--serif); font-size: 1.6rem; color: var(--text);
+  margin-bottom: 10px; border: 0; padding: 0;
+}
+.pricing-sub {
+  color: var(--text-dim); font-size: 0.96rem; max-width: 620px;
+  margin: 0 auto 30px; line-height: 1.7;
+}
+.price-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  align-items: stretch;
+}
+.price-card {
+  position: relative; display: flex; flex-direction: column; align-items: center;
+  padding: 34px 24px 28px; border-radius: var(--radius);
+  background: linear-gradient(165deg, var(--panel-2) 0%, var(--panel) 100%);
+  border: 1px solid var(--line-soft); box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+.price-card:hover { transform: translateY(-4px); border-color: rgba(212,175,110,0.5); }
+.price-card.is-featured {
+  border: 1px solid var(--gold);
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(212,175,110,0.18), transparent 70%),
+    linear-gradient(165deg, #16213b 0%, #0e1626 100%);
+  box-shadow: 0 22px 60px -20px rgba(212,175,110,0.4), var(--shadow-card);
+}
+.price-badge {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold) 60%, var(--gold-deep));
+  color: #2a1d05; font-weight: 800; font-size: 0.8rem;
+  padding: 5px 18px; border-radius: 999px; letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(212,175,110,0.4);
+}
+.price-name { font-size: 1.12rem; font-weight: 700; color: var(--text); margin-bottom: 14px; }
+.price-amount {
+  font-size: 2.3rem; font-weight: 900; color: var(--text); line-height: 1; letter-spacing: -0.02em;
+}
+.price-amount span { font-size: 1rem; font-weight: 700; color: var(--text-dim); margin-left: 3px; }
+.is-featured .price-amount {
+  background: linear-gradient(100deg, var(--gold-soft), var(--gold));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.price-dur { color: var(--orange-light); font-weight: 700; font-size: 0.9rem; margin: 8px 0 14px; }
+.is-featured .price-dur { color: var(--gold-soft); }
+.price-desc { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 22px; min-height: 2.6em; }
+.price-btn {
+  margin-top: auto; width: 100%; padding: 12px 0; border-radius: 999px;
+  font-weight: 800; font-size: 0.95rem; color: var(--text);
+  border: 1px solid var(--line); background: rgba(255,255,255,0.02);
+  transition: var(--transition);
+}
+.price-btn:hover { border-color: var(--orange-primary); color: var(--orange-light); }
+.price-btn-primary {
+  color: #2a1d05; border: 0;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold) 55%, var(--gold-deep));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 8px 22px rgba(212,175,110,0.35);
+}
+.price-btn-primary:hover { color: #2a1d05; filter: brightness(1.06); }
+.pricing-note { color: var(--text-dim); font-size: 0.9rem; margin-top: 26px; }
+.pricing-note a { color: var(--orange-light); font-weight: 700; }
+
+@media (max-width: 760px) {
+  .price-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+  .price-desc { min-height: 0; }
+}

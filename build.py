@@ -435,12 +435,51 @@ def make_service_schema(page: dict, canonical: str, noindex: bool) -> dict:
     return schema
 
 
+def render_pricing(page: dict, noindex: bool) -> str:
+    """코스 시간(60·90·120분) 기본 요금 카드. 개인정보처리방침·루트 제외."""
+    if not _reviews_eligible(page, noindex):
+        return ""
+    tel = "tel:" + PHONE
+    return (
+        '<section class="pricing-table" aria-label="기본 요금">'
+        '<h2>코스 시간으로 보는 기본 요금</h2>'
+        '<p class="pricing-sub">관리 시간(60·90·120분)을 기준으로 정리한 기본 금액입니다. '
+        '표시되지 않은 별도 비용은 두지 않는 것을 원칙으로 안내합니다.</p>'
+        '<div class="price-grid">'
+        '<div class="price-card">'
+        '<p class="price-name">60분 코스</p>'
+        '<p class="price-amount">90,000<span>원</span></p>'
+        '<p class="price-dur">60분</p>'
+        '<p class="price-desc">핵심 부위 위주 가벼운 이완</p>'
+        f'<a class="price-btn" href="{tel}">예약 문의</a></div>'
+        '<div class="price-card is-featured">'
+        '<span class="price-badge">추천</span>'
+        '<p class="price-name">90분 코스</p>'
+        '<p class="price-amount">150,000<span>원</span></p>'
+        '<p class="price-dur">90분</p>'
+        '<p class="price-desc">전신 균형 표준 구성·아로마 포함</p>'
+        f'<a class="price-btn price-btn-primary" href="{tel}">예약 문의</a></div>'
+        '<div class="price-card">'
+        '<p class="price-name">120분 코스</p>'
+        '<p class="price-amount">180,000<span>원</span></p>'
+        '<p class="price-dur">120분</p>'
+        '<p class="price-desc">구석구석 집중하는 프리미엄 구성</p>'
+        f'<a class="price-btn" href="{tel}">예약 문의</a></div>'
+        '</div>'
+        '<p class="pricing-note">방문 지역과 시간대, 이동 거리에 따라 최종 금액은 통화 시 확정됩니다. '
+        '<a href="/reservation/">요금·예약 기준 자세히 보기 →</a></p>'
+        '</section>'
+    )
+
+
 def render_page(page: dict) -> str:
     path = page["path"]
     title = page["title"]
     desc = page["desc"]
     h1 = page["h1"]
     body = page["body"]
+    # 본문 안의 구형 텍스트 요금 블록 제거(신형 요금 카드로 대체)
+    body = re.sub(r'<section class="pricing">.*?</section>', "", body, flags=re.S)
     crumbs = page.get("breadcrumb") or []
     extra_head = page.get("extra_head", "")
     hero = page.get("hero", "")
@@ -480,7 +519,8 @@ def render_page(page: dict) -> str:
         blocks.append(make_service_schema(page, canonical, noindex))
     auto_schema = "".join(_ld(b) for b in blocks)
 
-    # 롱테일 내부링크 + 이용 후기 (본문 뒤, 푸터 앞)
+    # 요금 카드 + 롱테일 내부링크 + 이용 후기 (본문 뒤, 푸터 앞)
+    pricing_html = render_pricing(page, noindex)
     related_html = render_related(page)
     reviews_html = render_reviews(page, noindex)
 
@@ -537,6 +577,7 @@ def render_page(page: dict) -> str:
       {render_breadcrumb(crumbs)}
       {h1_html}
       {body}
+      {pricing_html}
       {reviews_html}
       {related_html}
     </article>
