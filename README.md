@@ -5,7 +5,7 @@
 
 **상호**: 바로 GO
 **예약전화**: 0508-202-4719
-**메인 URL**: `/gyeonggi/hanam/`
+**메인 URL**: `/`
 
 ## 구조
 
@@ -17,7 +17,7 @@
 build.py                    # 빌드 스크립트 (헤더·푸터·스키마 자동 주입)
 content/
   site.py                  # 상호·전화·도메인·상단 메뉴(NAV)
-  root.py                  # 루트(/) → /gyeonggi/hanam/ 리다이렉트
+  root.py                  # 루트(/) → / 리다이렉트
   main.py                  # 하남 메인 페이지 (히어로·FAQ)
   areas.py                 # 지역 페이지 16개
   stations.py              # 역세권 페이지 8개
@@ -26,7 +26,7 @@ content/
 assets/
   style.css                # 프리미엄 다크 + 오렌지 + Pretendard, 글래스 오버레이
   nav.js                   # 모바일 네비게이션
-gyeonggi/hanam/...          # 생성된 페이지
+...          # 생성된 페이지
 ```
 
 ## 빌드

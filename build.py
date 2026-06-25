@@ -186,7 +186,7 @@ def make_webpage_schema(title: str, desc: str, canonical: str) -> dict:
 # ──────────────────────────────────────────────────────────
 # 롱테일 내부링크 (관련 안내 카드 블록)
 # ──────────────────────────────────────────────────────────
-_P = "gyeonggi/hanam/"
+_P = ""
 
 
 def _rel(*slugs):
@@ -520,7 +520,7 @@ def render_page(page: dict) -> str:
   <div class="header-accent" aria-hidden="true"></div>
   <div class="header-top">
     <div class="header-inner">
-      <a class="brand" href="/gyeonggi/hanam/"><span class="brand-mark">B</span> <span class="brand-text">{BRAND}</span></a>
+      <a class="brand" href="/"><span class="brand-mark">B</span> <span class="brand-text">{BRAND}</span></a>
       <p class="header-tagline"><span class="tag-gem">◆</span> 하남시 전지역 방문 관리 <span class="tag-gem">◆</span> 24시간 상담</p>
       <a class="header-call" href="tel:{PHONE}"><span class="call-label">예약전화</span> {PHONE_DISPLAY}</a>
       <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -556,25 +556,25 @@ def render_page(page: dict) -> str:
     <nav class="footer-col" aria-label="서비스 안내">
       <p class="footer-title">서비스</p>
       <ul>
-        <li><a href="/gyeonggi/hanam/">하남 출장마사지</a></li>
-        <li><a href="/gyeonggi/hanam/misa-area/">지역별 안내</a></li>
-        <li><a href="/gyeonggi/hanam/station/misa-station/">역세권 안내</a></li>
-        <li><a href="/gyeonggi/hanam/area/misa-riverside-city/">생활권 안내</a></li>
-        <li><a href="/gyeonggi/hanam/guide/">홈타이 이용 가이드</a></li>
+        <li><a href="/">하남 출장마사지</a></li>
+        <li><a href="/misa-area/">지역별 안내</a></li>
+        <li><a href="/station/misa-station/">역세권 안내</a></li>
+        <li><a href="/area/misa-riverside-city/">생활권 안내</a></li>
+        <li><a href="/guide/">홈타이 이용 가이드</a></li>
       </ul>
     </nav>
     <nav class="footer-col" aria-label="이용 안내">
       <p class="footer-title">이용 안내</p>
       <ul>
-        <li><a href="/gyeonggi/hanam/reservation/">예약안내</a></li>
-        <li><a href="/gyeonggi/hanam/check/">이용 전 확인사항</a></li>
-        <li><a href="/gyeonggi/hanam/support/">고객센터</a></li>
+        <li><a href="/reservation/">예약안내</a></li>
+        <li><a href="/check/">이용 전 확인사항</a></li>
+        <li><a href="/support/">고객센터</a></li>
       </ul>
     </nav>
     <nav class="footer-col" aria-label="정책 및 기준">
       <p class="footer-title">정책</p>
       <ul>
-        <li><a href="/gyeonggi/hanam/support/privacy/">개인정보처리방침</a></li>
+        <li><a href="/support/privacy/">개인정보처리방침</a></li>
         <li><a href="https://t.me/googleseolab" target="_blank" rel="noopener nofollow">문의하기</a></li>
       </ul>
     </nav>
@@ -632,7 +632,7 @@ def build() -> None:
 
     # ── sitemap.xml (lastmod·changefreq·priority 포함 — 색인 신호 강화) ──
     def _prio(u: str) -> str:
-        if u == base + "/gyeonggi/hanam/":
+        if u == base + "/":
             return "1.0"
         if "/station/" in u or "/area/" in u:
             return "0.7"
@@ -673,7 +673,7 @@ def build() -> None:
             '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
             "  <channel>\n"
             f"    <title>{_xml(BRAND)} 하남 출장마사지·홈타이 안내</title>\n"
-            f"    <link>{base}/gyeonggi/hanam/</link>\n"
+            f"    <link>{base}/</link>\n"
             f"    <description>{_xml(SITE_DESC)}</description>\n"
             "    <language>ko</language>\n"
             f"    <lastBuildDate>{rfc}</lastBuildDate>\n"

@@ -10,8 +10,8 @@ Indexing API 사용 — tools/google_index.py 참고).
   python tools/indexnow.py
 
   # 2) 특정 URL만 통보 (글 올릴 때마다)
-  python tools/indexnow.py https://hanam-home-massage.pages.dev/gyeonggi/hanam/misa-area/ \
-                           https://hanam-home-massage.pages.dev/gyeonggi/hanam/reservation/
+  python tools/indexnow.py https://hanam-home-massage.pages.dev/misa-area/ \
+                           https://hanam-home-massage.pages.dev/reservation/
 
 키 파일은 빌드 시 사이트 루트에 자동 생성됩니다:
   https://hanam-home-massage.pages.dev/<INDEXNOW_KEY>.txt

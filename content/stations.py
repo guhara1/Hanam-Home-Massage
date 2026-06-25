@@ -56,10 +56,10 @@ _misa_body = """
 <h2>미사역에서 이어지는 인접 생활권</h2>
 <p>미사역을 거점으로 두면 인접한 여러 생활권으로 자연스럽게 동선이 연결됩니다. 더 넓은 지역 기준은 아래 안내에서 확인하세요.</p>
 <ul>
-<li><a href="/gyeonggi/hanam/mangwol-dong/">망월동 안내</a> — 미사역과 가장 가까운 행정동 생활권으로 방문 동선이 짧습니다.</li>
-<li><a href="/gyeonggi/hanam/area/misa-riverside-city/">미사강변도시 안내</a> — 대단지 아파트가 밀집한 핵심 주거 구역입니다.</li>
-<li><a href="/gyeonggi/hanam/misa-area/">미사 생활권 안내</a> — 미사1·2·3동을 묶은 넓은 지역 기준 안내입니다.</li>
-<li><a href="/gyeonggi/hanam/area/misa-station-mangwol/">미사역·망월동 인접권 안내</a> — 역세권과 망월 생활권을 함께 본 페이지입니다.</li>
+<li><a href="/mangwol-dong/">망월동 안내</a> — 미사역과 가장 가까운 행정동 생활권으로 방문 동선이 짧습니다.</li>
+<li><a href="/area/misa-riverside-city/">미사강변도시 안내</a> — 대단지 아파트가 밀집한 핵심 주거 구역입니다.</li>
+<li><a href="/misa-area/">미사 생활권 안내</a> — 미사1·2·3동을 묶은 넓은 지역 기준 안내입니다.</li>
+<li><a href="/area/misa-station-mangwol/">미사역·망월동 인접권 안내</a> — 역세권과 망월 생활권을 함께 본 페이지입니다.</li>
 </ul>
 <p>미사역에서 방문 주소가 행정동 경계에 걸쳐 있는 경우, 위 생활권 페이지를 함께 확인하면 추가 이동비 발생 여부를 미리 판단하기 쉽습니다. 미사강변도시는 한강과 미사경정공원이 인접해 있어 산책·운동 후 피로 관리를 찾는 분이 많은 지역이기도 합니다. 미사강변도시에 대한 일반 정보는 <a href="https://ko.wikipedia.org/wiki/미사강변도시" target="_blank" rel="noopener nofollow">한국어 위키백과 미사강변도시 문서</a>에서도 확인할 수 있습니다.</p>
 </section>
@@ -67,7 +67,7 @@ _misa_body = """
 <section>
 <h2>예약 시간과 추가 이동비 기준</h2>
 <p>미사역 인근은 방문 수요가 몰리는 시간대(평일 저녁, 주말 오후)에는 예약이 빠르게 마감될 수 있습니다. 원하는 시간이 정해져 있다면 여유 있게 미리 연락 주시는 편이 좋습니다. 미사역 역세권은 하남 중심 권역이라 기본 방문 범위에 포함되는 경우가 많지만, 단지 위치나 시간대에 따라 <strong>추가 이동비</strong>가 발생할 수 있으므로 예약 시 정확한 주소를 기준으로 안내받으시길 권합니다.</p>
-<p>예약 가능 시간, 결제 방식, 예약 변경·취소 기준 등은 표준 안내를 따릅니다. 처음 이용하시는 분은 <a href="/gyeonggi/hanam/check/">이용 전 확인사항</a>을 먼저 읽어보시면 방문 가능 지역과 진행 절차를 한 번에 파악할 수 있습니다.</p>
+<p>예약 가능 시간, 결제 방식, 예약 변경·취소 기준 등은 표준 안내를 따릅니다. 처음 이용하시는 분은 <a href="/check/">이용 전 확인사항</a>을 먼저 읽어보시면 방문 가능 지역과 진행 절차를 한 번에 파악할 수 있습니다.</p>
 </section>
 
 <section>
@@ -103,9 +103,9 @@ _pungsan_body = """
 <h2>풍산동·덕풍동 생활권과 역할 분리</h2>
 <p>하남풍산역은 풍산동의 중심 역이면서 덕풍동과도 가깝습니다. 다만 같은 권역이라도 안내 기준이 다르므로 목적에 맞는 페이지를 선택하시는 편이 좋습니다.</p>
 <ul>
-<li><a href="/gyeonggi/hanam/pungsan-dong/">풍산동 안내</a> — 하남풍산역이 속한 행정동 전반의 방문 기준입니다.</li>
-<li><a href="/gyeonggi/hanam/deokpung-dong/">덕풍동 안내</a> — 구도심 주거·상업이 밀집한 인접 행정동 안내입니다.</li>
-<li><a href="/gyeonggi/hanam/area/hanam-pungsan-deokpung/">하남풍산·덕풍 인접권 안내</a> — 역세권과 덕풍 생활권을 함께 묶은 페이지입니다.</li>
+<li><a href="/pungsan-dong/">풍산동 안내</a> — 하남풍산역이 속한 행정동 전반의 방문 기준입니다.</li>
+<li><a href="/deokpung-dong/">덕풍동 안내</a> — 구도심 주거·상업이 밀집한 인접 행정동 안내입니다.</li>
+<li><a href="/area/hanam-pungsan-deokpung/">하남풍산·덕풍 인접권 안내</a> — 역세권과 덕풍 생활권을 함께 묶은 페이지입니다.</li>
 </ul>
 <p>이 역세권 페이지는 '역에서 가까운 주소로 방문할 때'를 기준으로 하고, 덕풍동 페이지는 '덕풍동 전체 생활권'을 기준으로 합니다. 두 페이지의 본문은 서로 다른 관점으로 작성되어 있으니, 방문 주소가 어느 쪽에 가까운지에 따라 함께 확인하시면 됩니다.</p>
 </section>
@@ -125,7 +125,7 @@ _pungsan_body = """
 <section>
 <h2>예약 시간과 추가 이동비</h2>
 <p>하남풍산역 역세권은 하남 중심 권역에 속해 기본 방문 범위에 포함되는 경우가 많습니다. 다만 시간대(평일 저녁, 주말)나 단지 위치에 따라 <strong>추가 이동비</strong>가 발생할 수 있으므로, 예약 시 정확한 주소를 기준으로 안내받으시는 것이 좋습니다. 원하는 시간이 정해져 있다면 여유 있게 미리 연락 주시면 일정 조율이 수월합니다.</p>
-<p>예약 가능 시간, 결제 방식, 예약 변경·취소 기준 등 전반적인 진행 절차는 <a href="/gyeonggi/hanam/reservation/">예약 안내</a> 페이지에서 확인하실 수 있습니다. 처음 이용하시는 분은 예약 안내를 먼저 읽으면 흐름을 한눈에 파악할 수 있습니다.</p>
+<p>예약 가능 시간, 결제 방식, 예약 변경·취소 기준 등 전반적인 진행 절차는 <a href="/reservation/">예약 안내</a> 페이지에서 확인하실 수 있습니다. 처음 이용하시는 분은 예약 안내를 먼저 읽으면 흐름을 한눈에 파악할 수 있습니다.</p>
 </section>
 
 <section>
@@ -172,18 +172,18 @@ _cityhall_body = """
 <h2>스타필드 하남 인접 권역</h2>
 <p>하남시청역과 가까운 곳에 <strong>스타필드 하남</strong>이 있어, 쇼핑·외식 후 인근 숙소나 자택에서 피로 관리를 찾는 분이 많습니다. 스타필드 하남 주변 생활권은 별도 페이지에서 더 자세히 안내합니다.</p>
 <ul>
-<li><a href="/gyeonggi/hanam/sinjang-dong/">신장동 안내</a> — 하남시청역이 속한 구도심 중심 행정동입니다.</li>
-<li><a href="/gyeonggi/hanam/deokpung-dong/">덕풍동 안내</a> — 시청역과 가까운 인접 주거·상업 생활권입니다.</li>
-<li><a href="/gyeonggi/hanam/changu-dong/">창우동 안내</a> — 검단산 방향으로 이어지는 인접 생활권입니다.</li>
-<li><a href="/gyeonggi/hanam/area/hanam-cityhall-sinjang/">하남시청·신장 인접권 안내</a> — 역세권과 신장 생활권을 함께 묶은 페이지입니다.</li>
-<li><a href="/gyeonggi/hanam/area/starfield-sinjang/">스타필드·신장 인접권 안내</a> — 스타필드 하남 주변 생활권 안내입니다.</li>
+<li><a href="/sinjang-dong/">신장동 안내</a> — 하남시청역이 속한 구도심 중심 행정동입니다.</li>
+<li><a href="/deokpung-dong/">덕풍동 안내</a> — 시청역과 가까운 인접 주거·상업 생활권입니다.</li>
+<li><a href="/changu-dong/">창우동 안내</a> — 검단산 방향으로 이어지는 인접 생활권입니다.</li>
+<li><a href="/area/hanam-cityhall-sinjang/">하남시청·신장 인접권 안내</a> — 역세권과 신장 생활권을 함께 묶은 페이지입니다.</li>
+<li><a href="/area/starfield-sinjang/">스타필드·신장 인접권 안내</a> — 스타필드 하남 주변 생활권 안내입니다.</li>
 </ul>
 </section>
 
 <section>
 <h2>예약 시간과 추가 이동비</h2>
 <p>하남시청역 역세권은 하남 중심 권역이라 기본 방문 범위에 포함되는 경우가 많습니다. 다만 평일 저녁이나 주말처럼 수요가 몰리는 시간대에는 예약이 빨리 마감될 수 있으니 원하는 시간이 있다면 미리 연락 주세요. 단지 위치나 시간대에 따라 <strong>추가 이동비</strong>가 발생할 수 있으므로, 예약 시 정확한 주소를 기준으로 안내받으시길 권합니다.</p>
-<p>예약 가능 시간, 결제 방식, 변경·취소 기준 등은 표준 안내를 따릅니다. 처음 이용하시는 분은 <a href="/gyeonggi/hanam/check/">이용 전 확인사항</a>을 먼저 확인하시면 방문 가능 지역과 절차를 한 번에 파악할 수 있습니다.</p>
+<p>예약 가능 시간, 결제 방식, 변경·취소 기준 등은 표준 안내를 따릅니다. 처음 이용하시는 분은 <a href="/check/">이용 전 확인사항</a>을 먼저 확인하시면 방문 가능 지역과 절차를 한 번에 파악할 수 있습니다.</p>
 </section>
 
 <section>
@@ -230,10 +230,10 @@ _geomdansan_body = """
 <h2>창우동·천현동·검단산 인접 생활권</h2>
 <p>하남검단산역은 창우동과 천현동, 그리고 검단산 일대를 잇는 위치에 있습니다. 행정동·생활권별 자세한 기준은 아래 페이지에서 확인하세요.</p>
 <ul>
-<li><a href="/gyeonggi/hanam/changu-dong/">창우동 안내</a> — 하남검단산역이 속한 행정동 전반의 방문 기준입니다.</li>
-<li><a href="/gyeonggi/hanam/cheonhyeon-dong/">천현동 안내</a> — 검단산 방향으로 이어지는 인접 행정동입니다.</li>
-<li><a href="/gyeonggi/hanam/geomdansan-area/">검단산 생활권 안내</a> — 검단산 인근 주거·등산 권역 안내입니다.</li>
-<li><a href="/gyeonggi/hanam/area/geomdansan-changu/">검단산·창우 인접권 안내</a> — 역세권과 창우 생활권을 함께 묶은 페이지입니다.</li>
+<li><a href="/changu-dong/">창우동 안내</a> — 하남검단산역이 속한 행정동 전반의 방문 기준입니다.</li>
+<li><a href="/cheonhyeon-dong/">천현동 안내</a> — 검단산 방향으로 이어지는 인접 행정동입니다.</li>
+<li><a href="/geomdansan-area/">검단산 생활권 안내</a> — 검단산 인근 주거·등산 권역 안내입니다.</li>
+<li><a href="/area/geomdansan-changu/">검단산·창우 인접권 안내</a> — 역세권과 창우 생활권을 함께 묶은 페이지입니다.</li>
 </ul>
 <p>검단산은 하남을 대표하는 산으로, 관련 일반 정보는 <a href="https://ko.wikipedia.org/wiki/검단산" target="_blank" rel="noopener nofollow">한국어 위키백과 검단산 문서</a>에서도 확인할 수 있습니다. 이 역세권 페이지는 '역 기준 방문'에, 창우동 페이지는 '창우동 전체 생활권'에 초점을 두고 있어 두 페이지의 본문 관점이 서로 다릅니다.</p>
 </section>
@@ -247,7 +247,7 @@ _geomdansan_body = """
 <li>방문 차량 주차·진입 가능 여부</li>
 <li>등산로 인근 숙소의 경우 프론트 안내 절차</li>
 </ul>
-<p>예약 가능 시간, 결제 방식, 변경·취소 기준 등 전반적인 진행은 <a href="/gyeonggi/hanam/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
+<p>예약 가능 시간, 결제 방식, 변경·취소 기준 등 전반적인 진행은 <a href="/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
 </section>
 
 <section>
@@ -293,9 +293,9 @@ _gangil_body = """
 <h2>강일역에서 가까운 하남 생활권</h2>
 <p>강일역과 가까운 하남 생활권은 다음과 같습니다. 실제 방문 주소가 하남 쪽이라면 아래 페이지에서 방문 기준을 확인하세요.</p>
 <ul>
-<li><a href="/gyeonggi/hanam/misa-area/">미사 생활권 안내</a> — 강일역과 가장 가까운 하남 대표 주거 권역입니다.</li>
-<li><a href="/gyeonggi/hanam/gambuk-dong/">감북동 안내</a> — 강일·상일동 방향과 인접한 하남 생활권입니다.</li>
-<li><a href="/gyeonggi/hanam/choi-dong/">초이동 안내</a> — 강일역 인접 하남 외곽 생활권 안내입니다.</li>
+<li><a href="/misa-area/">미사 생활권 안내</a> — 강일역과 가장 가까운 하남 대표 주거 권역입니다.</li>
+<li><a href="/gambuk-dong/">감북동 안내</a> — 강일·상일동 방향과 인접한 하남 생활권입니다.</li>
+<li><a href="/choi-dong/">초이동 안내</a> — 강일역 인접 하남 외곽 생활권 안내입니다.</li>
 </ul>
 <p>강일역에서 하남 미사 방향은 비교적 도심에 가까워 동선이 짧고, 감북·초이 방향은 외곽이라 단지 위치에 따라 이동 거리가 길어질 수 있습니다. 실제 방문 주소를 기준으로 동선과 이동비를 안내받으시길 권합니다.</p>
 </section>
@@ -303,7 +303,7 @@ _gangil_body = """
 <section>
 <h2>예약 시 확인할 점</h2>
 <p>강일역을 기준으로 예약하실 때는, 실제 방문 주소가 서울 강동구인지 하남인지부터 분명히 해주세요. 하남 주소라면 정확한 행정동과 단지명을 함께 알려주시면 방문 가능 여부와 <strong>추가 이동비</strong>를 명확히 안내해 드립니다. 외곽 권역은 도심보다 이동 거리가 길어 시간대에 따라 비용 기준이 달라질 수 있습니다.</p>
-<p>예약 가능 시간, 건물 출입 방식, 결제 방식, 변경·취소 기준 등 전반적인 절차는 <a href="/gyeonggi/hanam/check/">이용 전 확인사항</a>에서 확인하실 수 있습니다. 처음 이용하시는 분은 이 페이지를 먼저 읽으면 방문 가능 지역과 진행 흐름을 한 번에 파악할 수 있습니다.</p>
+<p>예약 가능 시간, 건물 출입 방식, 결제 방식, 변경·취소 기준 등 전반적인 절차는 <a href="/check/">이용 전 확인사항</a>에서 확인하실 수 있습니다. 처음 이용하시는 분은 이 페이지를 먼저 읽으면 방문 가능 지역과 진행 흐름을 한 번에 파악할 수 있습니다.</p>
 </section>
 
 <section>
@@ -349,9 +349,9 @@ _sangil_body = """
 <h2>상일동역에서 가까운 하남 생활권</h2>
 <p>상일동역과 가까운 하남 생활권은 다음과 같습니다. 실제 방문 주소가 하남이라면 아래 페이지에서 방문 기준을 확인하세요.</p>
 <ul>
-<li><a href="/gyeonggi/hanam/choi-dong/">초이동 안내</a> — 상일동역과 가까운 하남 외곽 생활권입니다.</li>
-<li><a href="/gyeonggi/hanam/gambuk-dong/">감북동 안내</a> — 상일·강일 방향과 인접한 하남 생활권입니다.</li>
-<li><a href="/gyeonggi/hanam/area/gambuk-choi/">감북·초이 인접권 안내</a> — 두 생활권을 함께 묶은 페이지입니다.</li>
+<li><a href="/choi-dong/">초이동 안내</a> — 상일동역과 가까운 하남 외곽 생활권입니다.</li>
+<li><a href="/gambuk-dong/">감북동 안내</a> — 상일·강일 방향과 인접한 하남 생활권입니다.</li>
+<li><a href="/area/gambuk-choi/">감북·초이 인접권 안내</a> — 두 생활권을 함께 묶은 페이지입니다.</li>
 </ul>
 <p>상일동역에서 하남 초이·감북 방향은 도심보다 외곽에 가까워, 단지 위치에 따라 이동 거리가 길어지는 구간이 있습니다. 실제 방문 주소를 기준으로 동선과 이동비를 안내받으시길 권합니다.</p>
 </section>
@@ -359,7 +359,7 @@ _sangil_body = """
 <section>
 <h2>예약 시 확인할 점</h2>
 <p>상일동역을 기준으로 예약하실 때는, 실제 방문 주소가 서울 강동구인지 하남인지부터 분명히 해주세요. 하남 주소라면 정확한 행정동과 단지명을 함께 알려주시면 방문 가능 여부와 <strong>추가 이동비</strong>를 명확히 안내해 드립니다. 초이·감북 방향 외곽 권역은 시간대에 따라 비용 기준이 달라질 수 있습니다.</p>
-<p>예약 가능 시간, 건물 출입 방식, 결제 방식, 변경·취소 기준 등 전반적인 절차는 <a href="/gyeonggi/hanam/check/">이용 전 확인사항</a>에서 확인하실 수 있습니다. 처음 이용하시는 분은 이 페이지를 먼저 확인하시길 권합니다.</p>
+<p>예약 가능 시간, 건물 출입 방식, 결제 방식, 변경·취소 기준 등 전반적인 절차는 <a href="/check/">이용 전 확인사항</a>에서 확인하실 수 있습니다. 처음 이용하시는 분은 이 페이지를 먼저 확인하시길 권합니다.</p>
 </section>
 
 <section>
@@ -405,8 +405,8 @@ _dunchon_body = """
 <h2>둔촌오륜역에서 가까운 하남 감일 생활권</h2>
 <p>둔촌오륜역과 도로로 연결되는 하남 생활권은 감일지구가 대표적입니다. 실제 방문 주소가 하남 감일이라면 아래 페이지에서 방문 기준을 확인하세요.</p>
 <ul>
-<li><a href="/gyeonggi/hanam/gamil-dong/">감일동 안내</a> — 둔촌오륜역과 가까운 하남 신도시 생활권입니다.</li>
-<li><a href="/gyeonggi/hanam/area/gamil-district/">감일지구 안내</a> — 감일 공공주택지구 전반의 방문 기준 페이지입니다.</li>
+<li><a href="/gamil-dong/">감일동 안내</a> — 둔촌오륜역과 가까운 하남 신도시 생활권입니다.</li>
+<li><a href="/area/gamil-district/">감일지구 안내</a> — 감일 공공주택지구 전반의 방문 기준 페이지입니다.</li>
 </ul>
 <p>감일지구는 신축 대단지가 밀집해 있어 건물 출입 방식이 단지마다 다르고, 둔촌오륜역 방향에서 진입할 때 이동 거리가 단지 위치에 따라 달라집니다. 실제 방문 주소를 기준으로 동선과 이동비를 안내받으시길 권합니다.</p>
 </section>
@@ -414,7 +414,7 @@ _dunchon_body = """
 <section>
 <h2>예약 시 확인할 점</h2>
 <p>둔촌오륜역을 기준으로 예약하실 때는, 실제 방문 주소가 서울인지 하남 감일인지부터 분명히 해주세요. 하남 감일 주소라면 정확한 단지명과 동·호수, 공동현관 출입 방법을 함께 알려주시면 방문 가능 여부와 <strong>추가 이동비</strong>를 명확히 안내해 드립니다. 신축 대단지는 보안 출입이 강화된 곳이 많아 사전 확인이 도착 시간 단축에 도움이 됩니다.</p>
-<p>예약 가능 시간, 결제 방식, 변경·취소 기준 등 전반적인 절차는 <a href="/gyeonggi/hanam/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
+<p>예약 가능 시간, 결제 방식, 변경·취소 기준 등 전반적인 절차는 <a href="/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
 </section>
 
 <section>
@@ -460,9 +460,9 @@ _macheon_body = """
 <h2>마천역에서 가까운 하남 생활권</h2>
 <p>마천역과 도로로 연결되는 하남 생활권은 감일지구와 하남 위례입니다. 실제 방문 주소가 하남이라면 아래 페이지에서 방문 기준을 확인하세요.</p>
 <ul>
-<li><a href="/gyeonggi/hanam/gamil-dong/">감일동 안내</a> — 마천역과 가까운 하남 신도시 생활권입니다.</li>
-<li><a href="/gyeonggi/hanam/wirye-dong/">위례동 안내</a> — 하남 위례 생활권의 방문 기준 페이지입니다.</li>
-<li><a href="/gyeonggi/hanam/area/hanam-wirye/">하남 위례 인접권 안내</a> — 하남 위례 권역을 묶은 페이지입니다.</li>
+<li><a href="/gamil-dong/">감일동 안내</a> — 마천역과 가까운 하남 신도시 생활권입니다.</li>
+<li><a href="/wirye-dong/">위례동 안내</a> — 하남 위례 생활권의 방문 기준 페이지입니다.</li>
+<li><a href="/area/hanam-wirye/">하남 위례 인접권 안내</a> — 하남 위례 권역을 묶은 페이지입니다.</li>
 </ul>
 <p>하남 위례와 감일은 신축 대단지가 많아 건물 출입 방식이 단지마다 다르고, 마천역 방향에서 진입할 때 이동 거리가 단지 위치에 따라 달라집니다. 실제 방문 주소를 기준으로 동선과 이동비를 안내받으시길 권합니다.</p>
 </section>
@@ -470,7 +470,7 @@ _macheon_body = """
 <section>
 <h2>예약 시 확인할 점</h2>
 <p>마천역을 기준으로 예약하실 때는, 실제 방문 주소가 서울 송파인지 하남(감일·위례)인지부터 분명히 해주세요. 특히 위례는 행정구역이 갈리므로, 송파 위례인지 하남 위례인지 확인이 필요합니다. 하남 주소라면 정확한 단지명과 동·호수를 함께 알려주시면 방문 가능 여부와 <strong>추가 이동비</strong>를 명확히 안내해 드립니다.</p>
-<p>예약 가능 시간, 건물 출입 방식, 결제 방식, 변경·취소 기준 등 전반적인 절차는 <a href="/gyeonggi/hanam/check/">이용 전 확인사항</a>에서 확인하실 수 있습니다. 처음 이용하시는 분은 이 페이지를 먼저 확인하시길 권합니다.</p>
+<p>예약 가능 시간, 건물 출입 방식, 결제 방식, 변경·취소 기준 등 전반적인 절차는 <a href="/check/">이용 전 확인사항</a>에서 확인하실 수 있습니다. 처음 이용하시는 분은 이 페이지를 먼저 확인하시길 권합니다.</p>
 </section>
 
 <section>
@@ -496,74 +496,74 @@ _macheon_body = """
 # 페이지 생성
 # ---------------------------------------------------------------------------
 _misa_page = create_station_page(
-    path="gyeonggi/hanam/station/misa-station/",
+    path="station/misa-station/",
     title="미사역 출장마사지｜망월동·미사강변도시 생활권 안내",
     desc="미사역 출장마사지 예약 전 망월동, 미사강변도시, 선동 인접권을 확인하세요.",
     h1="미사역 출장마사지",
-    breadcrumb=[("하남", "/gyeonggi/hanam/"), ("역세권 안내", "/gyeonggi/hanam/#stations"), ("미사역", "")],
+    breadcrumb=[("하남", "/"), ("역세권 안내", "/#stations"), ("미사역", "")],
     body_content=_misa_body,
 )
 
 _pungsan_page = create_station_page(
-    path="gyeonggi/hanam/station/hanam-pungsan-station/",
+    path="station/hanam-pungsan-station/",
     title="하남풍산역 출장마사지｜풍산동·덕풍동 생활권 안내",
     desc="하남풍산역 출장마사지 예약 전 풍산동, 덕풍동 인접 생활권을 확인하세요.",
     h1="하남풍산역 출장마사지",
-    breadcrumb=[("하남", "/gyeonggi/hanam/"), ("역세권 안내", "/gyeonggi/hanam/#stations"), ("하남풍산역", "")],
+    breadcrumb=[("하남", "/"), ("역세권 안내", "/#stations"), ("하남풍산역", "")],
     body_content=_pungsan_body,
 )
 
 _cityhall_page = create_station_page(
-    path="gyeonggi/hanam/station/hanam-cityhall-station/",
+    path="station/hanam-cityhall-station/",
     title="하남시청역 출장마사지｜신장동·덕풍동 생활권 안내",
     desc="하남시청역 출장마사지 예약 전 신장동, 덕풍동, 창우동 주변을 확인하세요.",
     h1="하남시청역 출장마사지",
-    breadcrumb=[("하남", "/gyeonggi/hanam/"), ("역세권 안내", "/gyeonggi/hanam/#stations"), ("하남시청역", "")],
+    breadcrumb=[("하남", "/"), ("역세권 안내", "/#stations"), ("하남시청역", "")],
     body_content=_cityhall_body,
 )
 
 _geomdansan_page = create_station_page(
-    path="gyeonggi/hanam/station/hanam-geomdansan-station/",
+    path="station/hanam-geomdansan-station/",
     title="하남검단산역 출장마사지｜창우동·검단산 생활권 안내",
     desc="하남검단산역 출장마사지 예약 전 창우동, 천현동, 검단산 인접 생활권을 확인하세요.",
     h1="하남검단산역 출장마사지",
-    breadcrumb=[("하남", "/gyeonggi/hanam/"), ("역세권 안내", "/gyeonggi/hanam/#stations"), ("하남검단산역", "")],
+    breadcrumb=[("하남", "/"), ("역세권 안내", "/#stations"), ("하남검단산역", "")],
     body_content=_geomdansan_body,
 )
 
 _gangil_page = create_station_page(
-    path="gyeonggi/hanam/station/gangil-nearby-area/",
+    path="station/gangil-nearby-area/",
     title="강일역 인접 출장마사지｜미사·감북 이동 기준 안내",
     desc="강일역 인접 출장마사지 예약 전 하남 미사, 감북, 초이 이동 기준을 확인하세요.",
     h1="강일역 인접 출장마사지",
-    breadcrumb=[("하남", "/gyeonggi/hanam/"), ("역세권 안내", "/gyeonggi/hanam/#stations"), ("강일역 인접", "")],
+    breadcrumb=[("하남", "/"), ("역세권 안내", "/#stations"), ("강일역 인접", "")],
     body_content=_gangil_body,
 )
 
 _sangil_page = create_station_page(
-    path="gyeonggi/hanam/station/sangil-dong-nearby-area/",
+    path="station/sangil-dong-nearby-area/",
     title="상일동역 인접 출장마사지｜초이·감북 이동 기준 안내",
     desc="상일동역 인접 출장마사지 예약 전 하남 초이, 감북 이동 기준을 확인하세요.",
     h1="상일동역 인접 출장마사지",
-    breadcrumb=[("하남", "/gyeonggi/hanam/"), ("역세권 안내", "/gyeonggi/hanam/#stations"), ("상일동역 인접", "")],
+    breadcrumb=[("하남", "/"), ("역세권 안내", "/#stations"), ("상일동역 인접", "")],
     body_content=_sangil_body,
 )
 
 _dunchon_page = create_station_page(
-    path="gyeonggi/hanam/station/dunchon-oryun-nearby-area/",
+    path="station/dunchon-oryun-nearby-area/",
     title="둔촌오륜역 인접 출장마사지｜감일 이동 기준 안내",
     desc="둔촌오륜역 인접 출장마사지 예약 전 하남 감일 이동 기준을 확인하세요.",
     h1="둔촌오륜역 인접 출장마사지",
-    breadcrumb=[("하남", "/gyeonggi/hanam/"), ("역세권 안내", "/gyeonggi/hanam/#stations"), ("둔촌오륜역 인접", "")],
+    breadcrumb=[("하남", "/"), ("역세권 안내", "/#stations"), ("둔촌오륜역 인접", "")],
     body_content=_dunchon_body,
 )
 
 _macheon_page = create_station_page(
-    path="gyeonggi/hanam/station/macheon-nearby-area/",
+    path="station/macheon-nearby-area/",
     title="마천역 인접 출장마사지｜감일·하남 위례 이동 기준 안내",
     desc="마천역 인접 출장마사지 예약 전 하남 감일, 위례 이동 기준을 확인하세요.",
     h1="마천역 인접 출장마사지",
-    breadcrumb=[("하남", "/gyeonggi/hanam/"), ("역세권 안내", "/gyeonggi/hanam/#stations"), ("마천역 인접", "")],
+    breadcrumb=[("하남", "/"), ("역세권 안내", "/#stations"), ("마천역 인접", "")],
     body_content=_macheon_body,
 )
 
